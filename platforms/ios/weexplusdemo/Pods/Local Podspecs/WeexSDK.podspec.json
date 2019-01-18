@@ -1,0 +1,74 @@
+{
+  "name": "WeexSDK",
+  "version": "0.18.0",
+  "summary": "WeexSDK Source .",
+  "description": "A framework for building Mobile cross-platform UI",
+  "homepage": "https://github.com/alibaba/weex",
+  "license": {
+    "type": "Copyright",
+    "text": "           Alibaba-INC copyright\n"
+  },
+  "authors": {
+    "cxfeng1": "cxfeng1@gmail.com",
+    "yangshengtao": "yangshengtao1314@163.com",
+    "kfeagle": "sunjjbobo@163.com"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": "WeexSDK/Sources/**/*.{h,m,mm,c,cpp,cc}",
+  "resources": [
+    "WeexSDK/Resources/*.js",
+    "WeexSDK/Resources/wx_load_error@3x.png"
+  ],
+  "user_target_xcconfig": {
+    "FRAMEWORK_SEARCH_PATHS": "'$(PODS_ROOT)/WeexSDK'"
+  },
+  "requires_arc": true,
+  "prefix_header_file": "WeexSDK/Sources/Supporting Files/WeexSDK-Prefix.pch",
+  "private_header_files": [
+    "WeexSDK/Sources/Component/RecycleList/WXJSASTParser.h",
+    "WeexSDK/Sources/Layout/WXScrollerComponent+Layout.h",
+    "weex_core/Source/**/*.{h,hpp}"
+  ],
+  "xcconfig": {
+    "OTHER_LINK_FLAG": "$(inherited) -ObjC",
+    "GCC_PREPROCESSOR_DEFINITIONS": "OS_IOS=1"
+  },
+  "frameworks": [
+    "CoreMedia",
+    "MediaPlayer",
+    "AVFoundation",
+    "AVKit",
+    "JavaScriptCore",
+    "GLKit",
+    "OpenGLES",
+    "CoreText",
+    "QuartzCore",
+    "CoreGraphics"
+  ],
+  "default_subspecs": "WeexCore",
+  "subspecs": [
+    {
+      "name": "WeexCore",
+      "source_files": [
+        "weex_core/Source/base/**/*.{h,hpp,m,mm,c,cpp,cc}",
+        "weex_core/Source/core/**/*.{h,hpp,m,mm,c,cpp,cc}",
+        "weex_core/Source/wson/**/*.{h,hpp,m,mm,c,cpp,cc}",
+        "weex_core/Source/third_party/**/*.{h,hpp,m,mm,c,cpp,cc}",
+        "weex_core/Source/include/**/*.{h,hpp,m,mm,c,cpp,cc}"
+      ],
+      "exclude_files": "weex_core/Source/**/*android.{h,hpp,m,mm,c,cpp,cc}",
+      "xcconfig": {
+        "USER_HEADER_SEARCH_PATHS": [
+          "${PODS_ROOT}/Headers/Public/WeexSDK/core/**"
+        ]
+      },
+      "header_mappings_dir": "weex_core/Source",
+      "libraries": "stdc++"
+    }
+  ]
+}

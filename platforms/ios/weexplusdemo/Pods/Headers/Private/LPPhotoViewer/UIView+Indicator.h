@@ -1,0 +1,1 @@
+../../../LPPhotoViewer/LPPhotoViewer/UIView+Indicator.h
