@@ -26,7 +26,7 @@
       pushToB()
       {
          let nav=weex.requireModule('navigator')
-         nav.push( 'root:demo/module/navigator.js')
+         nav.push( 'pageB.js')
       },
       presentB()
       {
