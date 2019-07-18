@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXTextInputComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXTextInputComponent.h

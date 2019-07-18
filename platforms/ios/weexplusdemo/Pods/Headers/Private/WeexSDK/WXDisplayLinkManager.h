@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Manager/WXDisplayLinkManager.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Manager/WXDisplayLinkManager.h

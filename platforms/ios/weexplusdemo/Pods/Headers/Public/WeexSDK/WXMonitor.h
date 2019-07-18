@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Monitor/WXMonitor.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Monitor/WXMonitor.h

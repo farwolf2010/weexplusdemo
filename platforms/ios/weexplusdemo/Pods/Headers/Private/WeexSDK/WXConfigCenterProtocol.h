@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXConfigCenterProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXConfigCenterProtocol.h

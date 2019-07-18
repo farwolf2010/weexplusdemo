@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/View/WXRootView.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/View/WXRootView.h

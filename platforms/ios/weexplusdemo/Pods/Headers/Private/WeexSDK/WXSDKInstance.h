@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Model/WXSDKInstance.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Model/WXSDKInstance.h

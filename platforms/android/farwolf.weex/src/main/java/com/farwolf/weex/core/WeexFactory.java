@@ -1,7 +1,11 @@
 package com.farwolf.weex.core;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Point;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 
 import com.alibaba.fastjson.JSONObject;
@@ -9,6 +13,10 @@ import com.farwolf.base.ServiceBase;
 import com.farwolf.util.ScreenTool;
 import com.farwolf.util.StringUtil;
 import com.farwolf.weex.util.Weex;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Response;
+import com.lzy.okgo.request.base.Request;
 import com.taobao.weex.IWXRenderListener;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.common.WXRenderStrategy;
@@ -16,6 +24,8 @@ import com.taobao.weex.common.WXRenderStrategy;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EBean;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -64,12 +74,12 @@ public class WeexFactory  extends ServiceBase{
 
     }
 
-    public void jump(String url,  Class cls,String rootid)
+    public void jump(String url,  Class cls,String rootid,boolean preload)
     {
         Intent in=new Intent(getActivity(),cls);
         in.putExtra("url",url);
         in.putExtra("rootid",rootid);
-        this.jump(url,in,false);
+        this.jump(url,in,false,preload);
     }
 
 
@@ -233,7 +243,7 @@ public class WeexFactory  extends ServiceBase{
 
     }
 
-    public void jump(String url, final Intent in,final boolean forResult)
+    public void jump(String url, final Intent in,final boolean forResult,boolean preload)
     {
 
 //        if(url.startsWith("http"))
@@ -248,10 +258,11 @@ public class WeexFactory  extends ServiceBase{
 //        }
 
 
-        if(hasCache(url))
+        if(hasCache(url)||!preload)
         {
             Page p=m.get(url);
             in.putExtra("url",url);
+            in.putExtra("preload",preload);
             if(!forResult)
                 context.startActivity(in);
             else
@@ -278,7 +289,8 @@ public class WeexFactory  extends ServiceBase{
                 p.v=view;
                 p.instance.hasInit=true;
                 if(ispotrait)
-                    p.instance.setSize(tool.getScreenWidth(),tool.getScreenHeight());
+                    p.instance.setSize(tool.getScreenWidth(),getDisplayScreenHeight());
+//                    p.instance.setSize(tool.getScreenWidth(),tool.getScreenHeight());
                 else
                     p.instance.setSize(tool.getScreenHeight(),tool.getScreenWidth());
                 if(!forResult)
@@ -321,7 +333,8 @@ public class WeexFactory  extends ServiceBase{
 
         if(url.startsWith("http"))
         {
-            instance.renderByUrl("farwolf", url, null, null, WXRenderStrategy.APPEND_ASYNC);
+            downloadJs(url,instance);
+//            instance.renderByUrl("farwolf", url, null, null, WXRenderStrategy.APPEND_ASYNC);
         }
         else
         {
@@ -332,6 +345,74 @@ public class WeexFactory  extends ServiceBase{
 
     }
 
+    public static void downloadJs(String url,final WXSDKInstance instance){
+        instance.setBundleUrl(url);
+//        instance.renderByUrl("farwolf", url, null, null, WXRenderStrategy.APPEND_ASYNC);
+        final String temp=url;
+        String md5=   Weex.webAppboardMd5();
+        url=url+"?md5="+md5;
+        url+="&p="+new Random(100000).nextInt();
+        Request req = OkGo.<String>get(url);
+        req.execute(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+
+                String bs=response.body();
+                String sp="/";
+                sp+="*******weexplus_split_weexplus******";
+                sp+="/";
+//                String sp="\\**";
+
+                if(bs.contains(sp)){
+                    String appaboard=bs.split("\\/\\*\\*\\*\\*\\*\\*\\*weexplus_split_weexplus\\*\\*\\*\\*\\*\\*\\/")[0];
+                    Weex.setWebAppboard(appaboard);
+                    bs=bs.replace(sp,"");
+                }else{
+                    bs=Weex.appBoardContent+bs;
+                }
+                HashMap op=new HashMap();
+                op.put("bundleUrl",temp);
+                instance.render("farwolf",bs, op, null, WXRenderStrategy.APPEND_ASYNC);
+//                instance.renderByUrl("farwolf", url, null, null, WXRenderStrategy.APPEND_ASYNC);
+//                callback.onInvoke(response.body());
+            }
+        });
+
+    }
+
+
+    public int getDisplayScreenHeight()
+    {
+//        int realWidth = 0;//宽
+        int realHeight = 0;//高
+        Display display = ((Activity)context).getWindowManager().getDefaultDisplay();
+        DisplayMetrics metrics = new DisplayMetrics();
+        display.getMetrics(metrics);
+        if (android.os.Build.VERSION.SDK_INT >= 17) {
+            Point size = new Point();
+            display.getRealSize(size);
+//            realWidth = size.x;
+            realHeight = size.y;
+        } else if (android.os.Build.VERSION.SDK_INT < 17
+                && android.os.Build.VERSION.SDK_INT >= 14) {
+            try {
+                Method mGetRawH =Display.class.getMethod("getRawHeight");
+//                Method mGetRawW = Display.class.getMethod("getRawWidth");
+//                realWidth = (Integer) mGetRawW.invoke(display);
+                realHeight = (Integer) mGetRawH.invoke(display);
+            } catch (NoSuchMethodException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        } else {
+//            realWidth = metrics.widthPixels;
+            realHeight = metrics.heightPixels;
+        }
+        return realHeight;
+    }
 
 
 

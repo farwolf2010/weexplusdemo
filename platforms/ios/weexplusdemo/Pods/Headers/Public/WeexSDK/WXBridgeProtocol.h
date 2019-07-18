@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXBridgeProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXBridgeProtocol.h

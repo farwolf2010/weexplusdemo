@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXURLRewriteProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXURLRewriteProtocol.h

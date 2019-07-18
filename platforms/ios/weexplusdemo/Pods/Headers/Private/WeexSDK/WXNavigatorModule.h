@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXNavigatorModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXNavigatorModule.h

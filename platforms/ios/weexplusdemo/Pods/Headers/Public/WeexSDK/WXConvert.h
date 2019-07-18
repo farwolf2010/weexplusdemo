@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/WXConvert.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/WXConvert.h

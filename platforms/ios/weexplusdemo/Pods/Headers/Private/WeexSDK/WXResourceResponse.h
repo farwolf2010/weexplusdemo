@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Network/WXResourceResponse.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Network/WXResourceResponse.h

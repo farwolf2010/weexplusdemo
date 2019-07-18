@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXJSFrameworkLoadProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXJSFrameworkLoadProtocol.h

@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Bridge/WXCallJSMethod.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Bridge/WXCallJSMethod.h

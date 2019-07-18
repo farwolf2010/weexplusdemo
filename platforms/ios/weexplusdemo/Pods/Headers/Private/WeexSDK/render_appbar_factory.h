@@ -1,0 +1,1 @@
+../../../../sdk/weex_core/Source/core/render/node/factory/render_appbar_factory.h

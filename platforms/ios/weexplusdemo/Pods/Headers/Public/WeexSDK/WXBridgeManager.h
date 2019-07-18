@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Manager/WXBridgeManager.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Manager/WXBridgeManager.h

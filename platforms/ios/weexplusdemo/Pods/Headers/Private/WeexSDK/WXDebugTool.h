@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Debug/WXDebugTool.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Debug/WXDebugTool.h

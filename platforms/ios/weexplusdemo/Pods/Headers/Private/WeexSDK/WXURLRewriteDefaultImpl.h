@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Handler/WXURLRewriteDefaultImpl.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Handler/WXURLRewriteDefaultImpl.h

@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Monitor/WXAnalyzerCenter.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Monitor/WXAnalyzerCenter.h

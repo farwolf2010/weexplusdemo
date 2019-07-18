@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Manager/WXInvocationConfig.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Manager/WXInvocationConfig.h

@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Manager/WXSDKManager.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Manager/WXSDKManager.h

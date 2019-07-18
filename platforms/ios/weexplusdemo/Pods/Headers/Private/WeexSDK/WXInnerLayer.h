@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Display/WXInnerLayer.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Display/WXInnerLayer.h

@@ -1,0 +1,12 @@
+node_modules/*
+.svn
+*.DS_Store
+.idea
+build
+busi
+temp
+dist/*
+*.iml
+release
+.gradle
+/build

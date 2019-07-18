@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Handler/WXJSFrameworkLoadDefaultImpl.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Handler/WXJSFrameworkLoadDefaultImpl.h

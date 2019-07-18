@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/WXAssert.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/WXAssert.h

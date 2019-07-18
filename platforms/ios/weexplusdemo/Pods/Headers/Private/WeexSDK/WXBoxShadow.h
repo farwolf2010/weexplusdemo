@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/WXBoxShadow.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/WXBoxShadow.h

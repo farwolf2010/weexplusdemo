@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/View/WXComponent+PseudoClassManagement.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/View/WXComponent+PseudoClassManagement.h

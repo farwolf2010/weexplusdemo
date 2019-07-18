@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXTextComponentProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXTextComponentProtocol.h

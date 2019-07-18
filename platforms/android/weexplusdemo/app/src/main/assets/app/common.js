@@ -62,7 +62,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 21);
+/******/ 	return __webpack_require__(__webpack_require__.s = 25);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -158,10 +158,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/zhengjiangrong/Desktop/weexplusdemo/src/native/component/wraper.vue"
+__vue_options__.__file = "/Users/zhengjiangrong/Documents/GitHub/weexplusdemo/src/native/component/wraper.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-82f46dc4"
+__vue_options__._scopeId = "data-v-f7dd4878"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -556,10 +556,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/zhengjiangrong/Desktop/weexplusdemo/src/native/component/head.vue"
+__vue_options__.__file = "/Users/zhengjiangrong/Documents/GitHub/weexplusdemo/src/native/component/head.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-70eb4072"
+__vue_options__._scopeId = "data-v-87f33826"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -600,10 +600,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/zhengjiangrong/Desktop/weexplusdemo/src/native/component/button.vue"
+__vue_options__.__file = "/Users/zhengjiangrong/Documents/GitHub/weexplusdemo/src/native/component/button.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-0b742859"
+__vue_options__._scopeId = "data-v-5e008a02"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -644,10 +644,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/zhengjiangrong/Desktop/weexplusdemo/src/native/component/page.vue"
+__vue_options__.__file = "/Users/zhengjiangrong/Documents/GitHub/weexplusdemo/src/native/component/page.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-3d4604f6"
+__vue_options__._scopeId = "data-v-31c2091c"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -701,13 +701,17 @@ module.exports = fetch;
 /* 18 */,
 /* 19 */,
 /* 20 */,
-/* 21 */
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _main = __webpack_require__(22);
+var _main = __webpack_require__(26);
 
 var _main2 = _interopRequireDefault(_main);
 
@@ -716,7 +720,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 Vue.use(_main2.default);
 
 /***/ }),
-/* 22 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

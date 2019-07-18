@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/WXThreadSafeMutableArray.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/WXThreadSafeMutableArray.h

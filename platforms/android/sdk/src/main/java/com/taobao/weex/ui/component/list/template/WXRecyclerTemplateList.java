@@ -81,6 +81,7 @@ import com.taobao.weex.utils.WXLogUtils;
 import com.taobao.weex.utils.WXUtils;
 import com.taobao.weex.utils.WXViewUtils;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -934,6 +935,8 @@ public class WXRecyclerTemplateList extends WXVContainer<BounceRecyclerView> imp
         if (mColumnCount <= 0 && mLayoutType != TYPE_LINEAR_LAYOUT) {
             Map<String, String> ext = new ArrayMap<>();
             ext.put("componentType", getComponentType());
+            ext.put("attribute", getAttrs().toString());
+            ext.put("stackTrace", Arrays.toString(Thread.currentThread().getStackTrace()));
             WXExceptionUtils.commitCriticalExceptionRT(getInstanceId(),
                 WXErrorCode.WX_RENDER_ERR_LIST_INVALID_COLUMN_COUNT, "columnCount",
                 String.format(Locale.ENGLISH,
@@ -1202,9 +1205,9 @@ public class WXRecyclerTemplateList extends WXVContainer<BounceRecyclerView> imp
         int contentWidth = recyclerView.getMeasuredWidth() + recyclerView.computeHorizontalScrollRange();
         int contentHeight = calcContentSize();
 
-        Map<String, Object> event = new HashMap<>(2);
-        Map<String, Object> contentSize = new HashMap<>(2);
-        Map<String, Object> contentOffset = new HashMap<>(2);
+        Map<String, Object> event = new HashMap<>(3);
+        Map<String, Object> contentSize = new HashMap<>(3);
+        Map<String, Object> contentOffset = new HashMap<>(3);
 
         contentSize.put(Constants.Name.WIDTH, WXViewUtils.getWebPxByWidth(contentWidth, getInstance().getInstanceViewPortWidth()));
         contentSize.put(Constants.Name.HEIGHT, WXViewUtils.getWebPxByWidth(contentHeight, getInstance().getInstanceViewPortWidth()));
@@ -1213,6 +1216,7 @@ public class WXRecyclerTemplateList extends WXVContainer<BounceRecyclerView> imp
         contentOffset.put(Constants.Name.Y, - WXViewUtils.getWebPxByWidth(offsetY, getInstance().getInstanceViewPortWidth()));
         event.put(Constants.Name.CONTENT_SIZE, contentSize);
         event.put(Constants.Name.CONTENT_OFFSET, contentOffset);
+        event.put(Constants.Name.ISDRAGGING, recyclerView.getScrollState() == RecyclerView.SCROLL_STATE_DRAGGING);
         return event;
     }
 

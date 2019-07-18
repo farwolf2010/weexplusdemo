@@ -10,6 +10,7 @@
 #import "WXDevToolType.h"
 #import "WXDeviceInfo.h"
 #import "WXDebuggerUtility.h"
+#import "WXMonitorHandler.h"
 #import <WeexSDK/WeexSDK.h>
 
 #define SYNCRETURN @"WxDebug.syncReturn"
@@ -28,6 +29,7 @@
     WXJSCallCreateFinish _callCreateFinishBlock;
     WXJSCallNativeModule _nativeModuleBlock;
     WXJSCallNativeComponent _nativeComponentBlock;
+    WXJSCallUpdateComponentData _callUpdateComponentDataBlock;
 }
 
 @dynamic domain;
@@ -80,9 +82,11 @@
                                        machine, @"model",
                                        [WXSDKEngine SDKEngineVersion],@"weexVersion",
                                        [WXDevTool WXDevtoolVersion],@"devtoolVersion",
+                                       [WXDebugger isVDom] ? @"vdom" : @"native",@"elementMode",
                                        appName, @"name",
                                        [WXLog logLevelString] ?: @"error",@"logLevel",
                                        [NSNumber numberWithBool:[WXDevToolType isDebug]],@"remoteDebug",
+                                       [NSNumber numberWithBool:[WXDebugger isNetwork]], @"network",
                                        nil];
     [self _registerDeviceWithParams:parameters];
 }
@@ -90,6 +94,11 @@
 - (void)debugDomainRegisterCallNative:(WXJSCallNative)callNativeBlock {
     [self _initBridgeThread];
     _nativeCallBlock = callNativeBlock;
+}
+
+- (void)debugDomainRegisterCallUpdateComponentData:(WXJSCallUpdateComponentData)callUpdateComponentData;
+{
+    _callUpdateComponentDataBlock = callUpdateComponentData;
 }
 
 - (void)debugDomainRegisterCallAddElement:(WXJSCallAddElement)callAddElement {
@@ -278,6 +287,18 @@
     }];
 }
 
+- (void)domain:(WXDynamicDebuggerDomain *)domain callUpdateComponentData:(NSDictionary *)jsModule callBack:(void (^)(id error))callback {
+    [self _executeBridgeThead:^{
+        NSString *instanceId = jsModule[@"instance"] ? : @"";
+        NSDictionary *data = jsModule[@"data"] ? : [NSDictionary dictionary];
+        NSString* dataString = [WXUtility JSONString:data];
+        NSString *componentId = jsModule[@"componentId"] ? : @"";
+        WXLogDebug(@"callUpdateComponentData...%@, %@, %@", instanceId, componentId, dataString);
+        _callUpdateComponentDataBlock(instanceId, componentId, dataString);
+        callback(nil);
+    }];
+}
+
 - (void)domain:(WXDynamicDebuggerDomain *)domain callCreateBody:(NSDictionary *)jsModule callBack:(void (^)(id error))callback {
 }
 
@@ -380,6 +401,34 @@
     }];
 }
 
+- (void)domain:(WXDynamicDebuggerDomain *)domain enablePerformanceMonitor:(BOOL)enable monitorCallback:(void (^)(id error))callback {
+    [WXAnalyzerCenter setOpen: enable];
+    if (enable) {
+        [WXAnalyzerCenter addWxAnalyzer:[WXMonitorHandler sharedInstance]];
+        if ([WXDebugTool isDebug]) {
+            [WXDebugTool setDebug:false];
+        }
+    }else {
+        [WXAnalyzerCenter rmWxAnalyzer:[WXMonitorHandler sharedInstance]];
+        [WXMonitorHandler resetMonitorData];
+    }
+}
 
+- (void)domain:(WXDynamicDebuggerDomain *)domain sendPerformanceData:(BOOL)enable sendCallback:(void (^)(id error))callback {
+    NSMutableDictionary *params = nil;
+    NSError *error = nil;
+    if ([WXMonitorHandler sharedInstance]) {
+        params = [WXMonitorHandler sharedInstance].monitorDictionary;
+    }else {
+        error = [NSError errorWithDomain:(NSErrorDomain)@"sendPerformanceData error" code:500 userInfo:nil];
+    }
+    if ([WXDebugger defaultInstance].isConnected) {
+        NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+        [dict setObject:@"WxDebug.sendPerformanceData" forKey:@"method"];
+        [dict setObject:params forKey:@"params"];
+        [[WXDebugger defaultInstance] sendDebugMessage:[WXUtility JSONString:dict] onBridgeThread:false];
+    }
+    callback(error);
+}
 
 @end

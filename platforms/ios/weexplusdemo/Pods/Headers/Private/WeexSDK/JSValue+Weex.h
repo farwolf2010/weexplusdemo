@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Bridge/JSValue+Weex.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Bridge/JSValue+Weex.h

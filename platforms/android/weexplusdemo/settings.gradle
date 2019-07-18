@@ -39,3 +39,13 @@ project (':sdk').projectDir = new File('../sdk')
 
 //include ':inspector'
 //project(':inspector').projectDir = new File('../inspector')
+
+
+
+
+include ':toast'
+project(':toast').projectDir = new File('../../../plugins/toast/android/toast')
+
+
+include ':audio'
+project(':audio').projectDir = new File('../../../plugins/audio/android/audio')

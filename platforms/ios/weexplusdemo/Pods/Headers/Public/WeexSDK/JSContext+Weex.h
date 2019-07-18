@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Bridge/JSContext+Weex.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Bridge/JSContext+Weex.h

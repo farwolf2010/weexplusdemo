@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXScrollerProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXScrollerProtocol.h

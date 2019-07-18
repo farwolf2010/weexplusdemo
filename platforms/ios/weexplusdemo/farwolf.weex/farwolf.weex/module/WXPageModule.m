@@ -9,13 +9,14 @@
 #import "WXNormalViewContrller.h"
 #import "URL.h"
 #import "WeexFactory.h"
+#import "Weex.h"
 
 @implementation WXPageModule
 @synthesize weexInstance;
 WX_EXPORT_METHOD(@selector(doubleBack))
 WX_EXPORT_METHOD(@selector(reload))
 WX_EXPORT_METHOD(@selector(preRender:success:))
-WX_EXPORT_METHOD(@selector(enableBackKey))
+WX_EXPORT_METHOD(@selector(enableBackKey:))
 WX_EXPORT_METHOD(@selector(setBackKeyCallback:))
 WX_EXPORT_METHOD(@selector(exit))
 WX_EXPORT_METHOD(@selector(kill))
@@ -24,6 +25,9 @@ WX_EXPORT_METHOD(@selector(closeSplash))
 WX_EXPORT_METHOD(@selector(pressHome))
 WX_EXPORT_METHOD(@selector(setKeyboardMode:))
 WX_EXPORT_METHOD_SYNC(@selector(getTopPage))
+WX_EXPORT_METHOD_SYNC(@selector(statusBarHeight))
+//WX_EXPORT_METHOD_SYNC(@selector(titleHeight))
+
 
 
 
@@ -38,6 +42,21 @@ WX_EXPORT_METHOD_SYNC(@selector(getTopPage))
 {
     
 }
+
+-(CGFloat)statusBarHeight{
+    //获取状态栏的rect
+    CGRect statusRect = [[UIApplication sharedApplication] statusBarFrame];
+    return [Weex deLength:statusRect.size.height instance:weexInstance];
+
+}
+
+//-(CGFloat)titleHeight{
+//    //获取状态栏的rect
+//    CGRect statusRect = [[UIApplication sharedApplication] statusBarFrame];
+//    CGRect navRect = weexInstance.viewController.navigationController.navigationBar.frame;
+//    return [Weex deLength:statusRect.size.height+navRect.size.height instance:weexInstance];
+//}
+
 -(void)setKeyboadMode:(NSString*)mode{
     
 }

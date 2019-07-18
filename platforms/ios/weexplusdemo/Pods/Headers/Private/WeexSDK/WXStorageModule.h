@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXStorageModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXStorageModule.h

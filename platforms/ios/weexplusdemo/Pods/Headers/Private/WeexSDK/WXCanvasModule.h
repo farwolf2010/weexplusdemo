@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXCanvasModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXCanvasModule.h

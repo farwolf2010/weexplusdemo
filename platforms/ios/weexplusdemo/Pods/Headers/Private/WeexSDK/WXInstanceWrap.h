@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXInstanceWrap.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXInstanceWrap.h

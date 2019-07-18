@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Performance/WXApmForInstance.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Performance/WXApmForInstance.h

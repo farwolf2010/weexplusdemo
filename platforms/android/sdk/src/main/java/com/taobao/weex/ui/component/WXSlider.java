@@ -73,7 +73,12 @@ public class WXSlider extends WXVContainer<FrameLayout> {
       return new WXSlider(instance, parent, basicComponentData);
     }
   }
-
+  //zjr add
+  @JSMethod
+  public void rework()
+  {
+    setAutoPlay("true");
+  }
   /**
    * Scrollable sliderview
    */
@@ -128,12 +133,6 @@ public class WXSlider extends WXVContainer<FrameLayout> {
     registerActivityStateListener();
 
     return view;
-  }
-  //zjr add
-  @JSMethod
-  public void rework()
-  {
-    setAutoPlay("true");
   }
 
   /**

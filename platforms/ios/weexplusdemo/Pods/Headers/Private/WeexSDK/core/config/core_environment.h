@@ -1,1 +1,0 @@
-../../../../../../sdk/weex_core/Source/core/config/core_environment.h

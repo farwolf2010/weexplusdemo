@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/RecycleList/WXJSASTParser.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/RecycleList/WXJSASTParser.h

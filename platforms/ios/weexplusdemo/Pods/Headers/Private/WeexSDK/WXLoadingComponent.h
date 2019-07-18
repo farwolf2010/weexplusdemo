@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXLoadingComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXLoadingComponent.h

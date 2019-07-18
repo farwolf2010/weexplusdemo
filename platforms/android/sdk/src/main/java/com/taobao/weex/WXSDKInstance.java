@@ -80,6 +80,7 @@ import com.taobao.weex.utils.WXLogUtils;
 import com.taobao.weex.utils.WXReflectionUtils;
 import com.taobao.weex.utils.WXUtils;
 import com.taobao.weex.utils.WXViewUtils;
+import com.taobao.weex.utils.cache.RegisterCache;
 
 import java.io.Serializable;
 import java.lang.ref.WeakReference;
@@ -108,18 +109,18 @@ public class WXSDKInstance implements IWXActivityStateListener,View.OnLayoutChan
   public static String ACTION_DEBUG_INSTANCE_REFRESH = "DEBUG_INSTANCE_REFRESH";
   public static String ACTION_INSTANCE_RELOAD = "INSTANCE_RELOAD";
 
-  //zjr add
-  public Map param;
-  private List<WXSDKInstance> childInstances=new ArrayList<>();
-  public boolean firePageInit =false;
-  public boolean hasInit =false;
-
   //Performance
   public boolean mEnd = false;
   public boolean mHasCreateFinish = false;
   public static final String BUNDLE_URL = "bundleUrl";
   private IWXUserTrackAdapter mUserTrackAdapter;
   private IWXRenderListener mRenderListener;
+  //zjr add
+  public Map param;
+  private List<WXSDKInstance> childInstances=new ArrayList<>();
+  public boolean firePageInit =false;
+  public boolean hasInit =false;
+  //zjr add
   private IWXStatisticsListener mStatisticsListener;
   /** package **/ Context mContext;
   private final String mInstanceId;
@@ -189,6 +190,8 @@ public class WXSDKInstance implements IWXActivityStateListener,View.OnLayoutChan
   private List<OnWXScrollListener> mWXScrollListeners;
 
   private List<String> mLayerOverFlowListeners;
+
+  private WXSDKInstance mParentInstance;
 
   public List<String> getLayerOverFlowListeners() {
     return mLayerOverFlowListeners;
@@ -494,6 +497,7 @@ public class WXSDKInstance implements IWXActivityStateListener,View.OnLayoutChan
   }
 
   public void init(Context context) {
+    RegisterCache.getInstance().idle(true);
     mContext = context;
     mContainerInfo = new HashMap<>(4);
     mNativeInvokeHelper = new NativeInvokeHelper(mInstanceId);
@@ -512,6 +516,9 @@ public class WXSDKInstance implements IWXActivityStateListener,View.OnLayoutChan
             :"unKnowContainer"
     );
     mContainerInfo.put(WXInstanceApm.KEY_PAGE_PROPERTIES_INSTANCE_TYPE,"page");
+
+    WXBridgeManager.getInstance().checkJsEngineMultiThread();
+
   }
 
   /**
@@ -1536,6 +1543,14 @@ public class WXSDKInstance implements IWXActivityStateListener,View.OnLayoutChan
       mWXPerformance.screenRenderTime = System.currentTimeMillis() - mRenderStartTime;
   }
 
+  public WXSDKInstance getParentInstance() {
+    return mParentInstance;
+  }
+
+  public void setParentInstance(WXSDKInstance mParentInstance) {
+    this.mParentInstance = mParentInstance;
+  }
+
   private void destroyView(View rootView) {
     try {
       if (rootView instanceof ViewGroup) {
@@ -1559,6 +1574,9 @@ public class WXSDKInstance implements IWXActivityStateListener,View.OnLayoutChan
 
   public synchronized void destroy() {
     if(!isDestroy()) {
+      if(mParentInstance != null){
+         mParentInstance = null;
+      }
       mApmForInstance.onEnd();
       if(mRendered) {
         WXSDKManager.getInstance().destroyInstance(mInstanceId);

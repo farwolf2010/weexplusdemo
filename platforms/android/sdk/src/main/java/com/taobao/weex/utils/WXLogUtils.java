@@ -165,7 +165,6 @@ public class WXLogUtils {
       }
     }
   }
-  //zjr add
   public static void sendError(String tag,String msg)
   {
 
@@ -173,8 +172,14 @@ public class WXLogUtils {
     if(msg.contains("TypeError"))
     {
       EventBus.getDefault().post(new ErrorEvent(msg.replace("__ERROR", "")));
+      ErrorEvent ev=new ErrorEvent(msg);
+      ev.level="error";
+      ev.type="log";
+      ev.msg=msg;
+      EventBus.getDefault().post(ev);
     }
   }
+
   private static LogLevel getLogLevel(String level) {
     switch (level.trim()){
       case "__ERROR":

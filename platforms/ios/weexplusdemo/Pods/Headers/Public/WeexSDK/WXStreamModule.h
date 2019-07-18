@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXStreamModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXStreamModule.h

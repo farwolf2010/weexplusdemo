@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXAnalyzerProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXAnalyzerProtocol.h

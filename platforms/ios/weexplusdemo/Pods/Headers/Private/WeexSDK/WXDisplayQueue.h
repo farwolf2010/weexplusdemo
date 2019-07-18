@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Display/WXDisplayQueue.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Display/WXDisplayQueue.h

@@ -71,9 +71,9 @@ public class PicassoImageAdapter implements IWXImgLoaderAdapter {
         }
         String temp = url;
 
-        if (view.getLayoutParams().width <= 0 || view.getLayoutParams().height <= 0) {
-          return;
-        }
+//        if (view.getLayoutParams().width <= 0 || view.getLayoutParams().height <= 0) {
+//          return;
+//        }
 
         if(view.getContext() instanceof WeexActivity)
         {
@@ -234,9 +234,9 @@ public class PicassoImageAdapter implements IWXImgLoaderAdapter {
       }
       url=Weex.getSingleRealUrl(url);
       Bitmap bm=null;
-      if(url.startsWith("base64==="))
+      if(url.startsWith(Const.PREFIX_BASE64))
       {
-          url=url.replace("base64===","");
+          url=url.replace(Const.PREFIX_BASE64,"");
           bm= PicassoImageAdapter.base64ToBitmap(url);
       }
       else

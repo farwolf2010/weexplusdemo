@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXVideoComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXVideoComponent.h

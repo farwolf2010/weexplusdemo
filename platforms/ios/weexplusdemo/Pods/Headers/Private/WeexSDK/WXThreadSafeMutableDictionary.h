@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/WXThreadSafeMutableDictionary.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/WXThreadSafeMutableDictionary.h

@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Controller/WXBaseViewController.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Controller/WXBaseViewController.h

@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXCycleSliderComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXCycleSliderComponent.h

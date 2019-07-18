@@ -1,12 +1,12 @@
 <template>
     <div style="background-color: red">
-        <WxcButton></WxcButton>
+
     </div>
 </template>
 <script>
-  import { WxcButton, WxcPopup } from 'weex-ui';
+
   export default{
-    components:{WxcButton,WxcPopup},
+    components:{ },
     props: {},
     data () {
       return {}

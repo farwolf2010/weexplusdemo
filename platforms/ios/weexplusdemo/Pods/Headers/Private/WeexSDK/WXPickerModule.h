@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXPickerModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXPickerModule.h

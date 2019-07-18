@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Display/WXRoundedRect.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Display/WXRoundedRect.h

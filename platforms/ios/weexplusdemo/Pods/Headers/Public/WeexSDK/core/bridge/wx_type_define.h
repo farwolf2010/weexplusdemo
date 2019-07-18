@@ -1,1 +1,0 @@
-../../../../../../sdk/weex_core/Source/core/bridge/wx_type_define.h

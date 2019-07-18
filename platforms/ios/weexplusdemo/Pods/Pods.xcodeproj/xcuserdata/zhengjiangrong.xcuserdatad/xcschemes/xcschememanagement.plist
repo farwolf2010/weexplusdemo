@@ -124,6 +124,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>WeexPluginLoader.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>WeexSDK.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -170,6 +175,11 @@
 			<false/>
 		</dict>
 		<key>farwolf.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>toast.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

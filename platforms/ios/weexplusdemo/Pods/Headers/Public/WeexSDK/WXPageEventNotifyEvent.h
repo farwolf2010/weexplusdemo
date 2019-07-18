@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXPageEventNotifyEvent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXPageEventNotifyEvent.h

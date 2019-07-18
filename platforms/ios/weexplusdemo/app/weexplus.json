@@ -1,11 +1,11 @@
 {
   "schema":"js",
-  "debug":false,
+  "debug":true,
   "showerror":true,
   "isPortrait":true,
   "jsVersion":3,
   "debugIp":"127.0.0.1",
-  "debugEntry":"http://192.168.0.103:8890/js/pageA.js",
+  "debugEntry":"http://192.168.0.102:8890/js/toast.js",
   "releaseEntry":"app/index.js",
   "wechatEntry":"app/demo/index.js",
   "appBoard":"root:common.js",

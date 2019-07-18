@@ -1,0 +1,32 @@
+{
+  "name": "toast",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "version": "0.0.1",
+  "summary": "Handle some data.",
+  "description": "Handle the data.",
+  "homepage": "http://csdn.net/veryitman",
+  "license": "MIT",
+  "authors": {
+    "veryitman": "362675035@qq.com"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": [
+    "Source",
+    "**/**/*.{h,m,mm,c}"
+  ],
+  "resources": "resources/*",
+  "ios": {
+    "vendored_libraries": "*.a",
+    "vendored_frameworks": "*.framework"
+  },
+  "exclude_files": "Source/Exclude",
+  "dependencies": {
+    "farwolf.weex": [
+
+    ]
+  }
+}

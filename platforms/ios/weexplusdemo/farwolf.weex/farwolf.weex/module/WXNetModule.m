@@ -141,8 +141,10 @@ WX_EXPORT_METHOD_SYNC(@selector(getSessionId:))
     {
         NSString *v=d[key];
         v=[v replace:@"sdcard:" withString:@""];
-        UIImage *img=[self getDocumentImage:v];
-        [f addParam:key file:img];
+        v=[v replace:@"file://" withString:@""];
+        NSData *data= [NSData dataWithContentsOfFile:v];
+        [f addWeg:key weg: [self getWeg:v]];
+        [f addParam:key file:data];
         
     }
     [f excuteFile:url start:^{
@@ -165,6 +167,14 @@ WX_EXPORT_METHOD_SYNC(@selector(getSessionId:))
 }
 
 
+-(NSString*)getWeg:(NSString*)path{
+    NSMutableArray *ary=[path split:@"/"];
+    if(ary.count==0){
+        return @"";
+    }
+    return ary[ary.count-1];
+}
+
 -(void)postJson:(NSString*)url param:(NSDictionary*)param header:(NSDictionary*)header start:(WXModuleKeepAliveCallback)start  success:(WXModuleKeepAliveCallback)success  compelete:(WXModuleKeepAliveCallback)compelete exception:(WXModuleKeepAliveCallback)exception
 {
     
@@ -186,6 +196,12 @@ WX_EXPORT_METHOD_SYNC(@selector(getSessionId:))
     //     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
     NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:url parameters:nil error:nil];
+    NSMutableDictionary *d=   header;
+    for(NSString *key in d.allKeys)
+    {
+        NSString *v=d[key];
+        [request setValue:v forHTTPHeaderField:key];
+    }
     request.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];

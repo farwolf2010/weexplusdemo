@@ -22,12 +22,13 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.farwolf.base.TitleActivityBase;
 import com.farwolf.util.ActivityManager;
 import com.farwolf.util.AppTool;
+import com.farwolf.util.DateTool;
 import com.farwolf.util.KeyBoardTool;
 import com.farwolf.util.ScreenTool;
+import com.farwolf.util.StatusBar;
 import com.farwolf.util.StringUtil;
 import com.farwolf.view.FreeDialog;
 import com.farwolf.weex.R;
@@ -41,6 +42,7 @@ import com.farwolf.weex.listener.RenderListener;
 import com.farwolf.weex.module.WXNavgationModule;
 import com.farwolf.weex.module.WXStaticModule;
 import com.farwolf.weex.pref.WeexPref_;
+import com.farwolf.weex.util.HotRefreshManager;
 import com.farwolf.weex.util.Weex;
 import com.farwolf.weex.view.ToolPop;
 import com.farwolf.weex.view.ToolPop_;
@@ -65,13 +67,13 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.File;
-import java.lang.reflect.Field;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * Created by zhengjiangrong on 2017/5/8.
@@ -105,6 +107,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
 
 
     public String url;
+    public static String statuBarColor;
 
 
     @ViewById
@@ -185,7 +188,9 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
         }
 
         super.onCreate(arg0);
-
+        if(statuBarColor!=null){
+          StatusBar.setStatusBarStyle(statuBarColor,this);
+        }
 //        mReloadReceiver = new BroadcastReceiver() {
 //            @Override
 //            public void onReceive(Context context, Intent intent) {
@@ -337,6 +342,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
         if( ActivityManager.getInstance().getCurrentActivity()==this)
         {
 
+            if("".equals(event.type))
             this.showError(event.msg);
         }
 
@@ -414,9 +420,10 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
 
         try
         {
+            boolean preload=getIntent().getBooleanExtra("preload",true);
             if(StringUtil.isNullOrEmpty(url))
                 return;
-            if(showProgress)
+            if(showProgress&&preload!=false)
                 showLoading();
             fail_layout.setVisibility(View.GONE);
             if(mWXSDKInstance!=null)
@@ -435,10 +442,11 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
 //            Weex.setBaseUrl(mWXSDKInstance);
             if(url.startsWith("http"))
             {
-                if(!url.contains("?"))
-                    url+="?";
-                url+="p="+new Random(100000).nextInt();
-                mWXSDKInstance.renderByUrl("farwolf", url, null, null, WXRenderStrategy.APPEND_ASYNC);
+//                if(!url.contains("?"))
+//                    url+="?";
+//                url+="p="+new Random(100000).nextInt();
+//                mWXSDKInstance.renderByUrl("farwolf", url, null, null, WXRenderStrategy.APPEND_ASYNC);
+                WeexFactory.downloadJs(url,mWXSDKInstance);
             }
             else
             {
@@ -530,6 +538,9 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
 //            fail_layout.setVisibility(View.VISIBLE);
             this.err.setText(err+"");
             this.err_layout.setVisibility(View.VISIBLE);
+            String level="info";
+            err= DateTool.Now()+" "+err;
+            HotRefreshManager.getInstance().send("log:"+level+"level:"+err);
         }
         hideLoading();
 
@@ -553,6 +564,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
         mWXSDKInstance.onActivityCreate();
         this.invokeRenderListener();
         this.isPageInit=true;
+        hideLoading();
     }
 
     @Override
@@ -628,6 +640,9 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
     }
 
 
+
+
+
     @Override
     protected void onResume() {
 
@@ -640,6 +655,7 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
 
         Log.e("stack",WXNavgationModule.stacks.get(rootid)+"");
     }
+
 
 
     @Override
@@ -714,15 +730,23 @@ public class WeexActivity extends TitleActivityBase implements IWXRenderListener
         String url=in.getStringExtra("url");
         if(!StringUtil.isNullOrEmpty(url))
         {
+            String temp=url;
+            if(url.contains("_wx_tpl=")){
+                url=url.split("_wx_tpl=")[1];
+            }
+            try {
+                url= URLDecoder.decode(url,"UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            render(url);
             this.url=url;
             pref.edit().url().put(url).apply();
             String sp=getSocketPortByUrl(url);
             pref.edit().socketPort().put(sp).apply();
-            render(url);
             EventBus.getDefault().post(new RefreshEvent("connect"));
 
-//            startHotRefresh();
-//            weex.startDebug();
+
         }
 
     }

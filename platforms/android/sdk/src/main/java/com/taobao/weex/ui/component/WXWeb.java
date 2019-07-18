@@ -159,8 +159,6 @@ public class WXWeb extends WXComponent {
             return;
         }
         if (!TextUtils.isEmpty(url)) {
-            //zjr add
-//            loadUrl(url);
             loadUrl(getInstance().rewriteUri(Uri.parse(url), URIAdapter.WEB).toString());
         }
     }
@@ -194,15 +192,22 @@ public class WXWeb extends WXComponent {
             fireEvent(Constants.Event.ERROR, params);
         }
     }
+    //zjr add
+    @JSMethod
+    public void excuteJs(String js){
+        WXWebView web=(WXWebView)mWebView;
+        web.getWebView().loadUrl("javascript:"+js);
+    }
 
+    //zjr
     public void loadUrl(String url) {
         getWebView().loadUrl(url);
     }
-    //zjr add
+
+    //zjr
     public void loadDataWithBaseURL(String source) {
         getWebView().loadDataWithBaseURL(source);
     }
-
     @JSMethod
     public void reload() {
         getWebView().reload();
@@ -222,7 +227,6 @@ public class WXWeb extends WXComponent {
     public void postMessage(Object msg) {
         getWebView().postMessage(msg);
     }
-
 
     private IWebView getWebView() {
         return mWebView;

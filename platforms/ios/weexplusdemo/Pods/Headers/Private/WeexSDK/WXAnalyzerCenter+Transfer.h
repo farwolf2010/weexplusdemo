@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Monitor/WXAnalyzerCenter+Transfer.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Monitor/WXAnalyzerCenter+Transfer.h

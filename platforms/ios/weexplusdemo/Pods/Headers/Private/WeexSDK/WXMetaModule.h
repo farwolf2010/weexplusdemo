@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXMetaModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXMetaModule.h

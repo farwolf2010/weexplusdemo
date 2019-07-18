@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXNavigationProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXNavigationProtocol.h

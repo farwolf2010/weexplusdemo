@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXIndicatorComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXIndicatorComponent.h

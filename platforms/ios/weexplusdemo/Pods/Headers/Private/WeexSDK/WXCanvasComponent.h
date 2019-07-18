@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXCanvasComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXCanvasComponent.h

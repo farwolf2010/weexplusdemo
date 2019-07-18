@@ -1,12 +1,13 @@
 package com.farwolf.weex.component;
 
 
+import android.view.View;
 import android.view.ViewGroup;
 
+import com.farwolf.weex.core.WeexFactory;
 import com.farwolf.weex.util.Weex;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.annotation.Component;
-import com.taobao.weex.common.WXPerformance;
 import com.taobao.weex.common.WXRenderStrategy;
 import com.taobao.weex.ui.action.BasicComponentData;
 import com.taobao.weex.ui.component.WXComponentProp;
@@ -36,6 +37,18 @@ public class WXFEmbed extends WXEmbed {
 //
 //    }
 
+    public ViewGroup.LayoutParams getSize(){
+        int width=-1;
+        int height=-1;
+        View v=this.getHostView();
+        while(v.getLayoutParams().width==-1&&v.getParent()!=null){
+            v=(View)v.getParent();
+        }
+        if(v!=null)
+            return v.getLayoutParams();
+        return null;
+    }
+
     public void loadUrl(String url,WXSDKInstance instance,ViewGroup.LayoutParams layoutParams)
     {
 
@@ -48,8 +61,18 @@ public class WXFEmbed extends WXEmbed {
         }
         if(url.startsWith("http"))
         {
-            instance.renderByUrl(WXPerformance.DEFAULT, url, null, null, layoutParams.width,
-                    layoutParams.height, WXRenderStrategy.APPEND_ASYNC);
+            ViewGroup.LayoutParams lp=getSize();
+            int width=layoutParams.width;
+            int height=layoutParams.height;
+            if(lp!=null){
+                width=lp.width;
+                height=lp.height;
+            }
+            instance.setSize(width,height);
+            WeexFactory.downloadJs(url,instance);
+
+//            instance.renderByUrl(WXPerformance.DEFAULT, url, null, null, width,
+//                    height, WXRenderStrategy.APPEND_ASYNC);
 
 
         }
@@ -72,7 +95,7 @@ public class WXFEmbed extends WXEmbed {
     public void setParam(HashMap param) {
         if(param==null||param.size()==0)
             return;
-      this.param=param;
+        this.param=param;
     }
 
     public void onRenderFinish()

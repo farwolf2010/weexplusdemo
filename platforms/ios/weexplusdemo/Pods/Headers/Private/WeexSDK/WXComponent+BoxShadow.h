@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Display/WXComponent+BoxShadow.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Display/WXComponent+BoxShadow.h

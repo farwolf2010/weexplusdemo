@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Model/WXSDKInstance_performance.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Model/WXSDKInstance_performance.h

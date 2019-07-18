@@ -162,16 +162,12 @@ public class WXEmbed extends WXDiv implements WXSDKInstance.OnInstanceVisibleLis
 
     }
   }
-
   //zjr add
   public WXSDKInstance getChildInstance()
   {
     return mNestedInstance;
   }
-  //zjr add
-  public void onRenderFinish(){
 
-  }
   static class EmbedRenderListener implements IWXRenderListener {
     WXEmbed mComponent;
     OnNestedInstanceEventListener mEventListener;
@@ -187,9 +183,8 @@ public class WXEmbed extends WXDiv implements WXSDKInstance.OnInstanceVisibleLis
       hostView.removeAllViews();
       hostView.addView(view);
       //zjr add
-      mComponent.onRenderFinish();
+      mComponent.onRenderFinish(0);
     }
-
 
     @Override
     public void onRenderSuccess(WXSDKInstance instance, int width, int height) {
@@ -353,7 +348,7 @@ public class WXEmbed extends WXDiv implements WXSDKInstance.OnInstanceVisibleLis
 
   private WXSDKInstance createInstance() {
     WXSDKInstance sdkInstance = getInstance().createNestedInstance(this);
-
+    sdkInstance.setParentInstance(getInstance());
     boolean needsAdd = !getAttrs().containsKey("disableInstanceVisibleListener");
     if(needsAdd){ //prevent switch off fire viewappear event twice
         getInstance().addOnInstanceVisibleListener(this);
@@ -387,11 +382,8 @@ public class WXEmbed extends WXDiv implements WXSDKInstance.OnInstanceVisibleLis
 //            null, null,
 //            WXRenderStrategy.APPEND_ASYNC);
     this.loadUrl(url,sdkInstance,layoutParams);
-
     return sdkInstance;
   }
-
-
   //zjr add
   public void loadUrl(String url,WXSDKInstance instance,ViewGroup.LayoutParams layoutParams)
   {
@@ -406,7 +398,6 @@ public class WXEmbed extends WXDiv implements WXSDKInstance.OnInstanceVisibleLis
 
     }
   }
-
   @Override
   public void setVisibility(String visibility) {
     super.setVisibility(visibility);

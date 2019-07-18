@@ -10,8 +10,17 @@
 #import "IQKeyboardManager.h"
 @implementation WXKeyboardModule
 WX_EXPORT_METHOD(@selector(enableAutoContorl:))
+WX_EXPORT_METHOD(@selector(setKeyboardMode:))
 WX_EXPORT_METHOD(@selector(setKeyboardContorl:dismiss:))
+WX_EXPORT_METHOD(@selector(hide:))
+
 @synthesize weexInstance;
+
+
+
+-(void)setKeyboardMode:(NSString*)mode{
+    
+}
 -(void)enableAutoContorl:(BOOL)enable
 {
      [ IQKeyboardManager   sharedManager ] .enable   =   enable;
@@ -37,6 +46,16 @@ WX_EXPORT_METHOD(@selector(setKeyboardContorl:dismiss:))
 - (void)keyboardWillBeHiden:(NSNotification *)notification
 {
      self.onhide(@{}, true);
+}
+
+-(BOOL)hide:(WXModuleCallback)callback{
+    dispatch_async(dispatch_get_main_queue(), ^{
+       BOOL t=  [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+        if(callback)
+        callback(@{@"res":@(t)});
+        
+    });
+    
 }
 
 

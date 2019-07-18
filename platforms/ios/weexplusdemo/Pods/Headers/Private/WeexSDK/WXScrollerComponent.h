@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXScrollerComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXScrollerComponent.h

@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXWebSocketModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXWebSocketModule.h

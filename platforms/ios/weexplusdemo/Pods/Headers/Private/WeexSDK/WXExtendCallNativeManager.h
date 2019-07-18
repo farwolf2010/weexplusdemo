@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Manager/WXExtendCallNativeManager.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Manager/WXExtendCallNativeManager.h

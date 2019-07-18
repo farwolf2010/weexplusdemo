@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Bridge/WXComponentMethod.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Bridge/WXComponentMethod.h

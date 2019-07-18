@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Manager/WXServiceFactory.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Manager/WXServiceFactory.h

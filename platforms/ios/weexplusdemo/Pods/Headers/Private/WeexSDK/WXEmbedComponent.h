@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXEmbedComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXEmbedComponent.h

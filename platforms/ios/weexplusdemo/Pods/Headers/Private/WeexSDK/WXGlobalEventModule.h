@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXGlobalEventModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXGlobalEventModule.h

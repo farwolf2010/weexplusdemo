@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/WXThreadSafeCounter.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/WXThreadSafeCounter.h

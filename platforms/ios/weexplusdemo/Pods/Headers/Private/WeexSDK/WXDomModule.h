@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXDomModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXDomModule.h

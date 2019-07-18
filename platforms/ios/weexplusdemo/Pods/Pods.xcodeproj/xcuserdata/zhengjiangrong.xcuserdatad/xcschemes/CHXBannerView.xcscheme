@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0A3499C5A4228CAF08C76B3EBCF5134A"
+               BlueprintIdentifier = "239FF6676C7CA0A14D8C7DAD6171902B"
+               BuildableName = "libCHXBannerView.a"
                BlueprintName = "CHXBannerView"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libCHXBannerView.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

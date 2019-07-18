@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXValidateProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXValidateProtocol.h

@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/WXWeakObjectWrapper.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/WXWeakObjectWrapper.h

@@ -12,7 +12,6 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 #import <WeexSDK/WeexSDK.h>
-#import <WeexSDK/WXTracingManager.h>
 
 #pragma mark - Preprocessor
 
@@ -78,6 +77,7 @@ extern NSString *const kWXNetworkObserverEnabledStateChangedNotification;
 - (void)forwardNetworkTrafficFromDelegateClass:(Class)cls;
 + (void)registerPrettyStringPrinter:(id<WXPrettyStringPrinting>)prettyStringPrinter;
 + (void)unregisterPrettyStringPrinter:(id<WXPrettyStringPrinting>)prettyStringPrinter;
++ (BOOL)isNetwork;
 
 #pragma mark Core Data Debugging
 - (void)enableCoreDataDebugging;

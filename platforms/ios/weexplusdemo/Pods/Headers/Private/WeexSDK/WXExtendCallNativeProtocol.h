@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXExtendCallNativeProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXExtendCallNativeProtocol.h

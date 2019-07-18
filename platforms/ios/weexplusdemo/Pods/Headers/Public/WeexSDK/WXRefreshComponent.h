@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXRefreshComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXRefreshComponent.h

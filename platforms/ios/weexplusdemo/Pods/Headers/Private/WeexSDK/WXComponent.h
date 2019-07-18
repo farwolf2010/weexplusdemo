@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Model/WXComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Model/WXComponent.h

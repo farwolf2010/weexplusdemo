@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/NSTimer+Weex.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/NSTimer+Weex.h

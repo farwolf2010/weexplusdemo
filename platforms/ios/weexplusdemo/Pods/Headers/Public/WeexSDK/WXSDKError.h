@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Engine/WXSDKError.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Engine/WXSDKError.h

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2D0C5ACBB79D836FB8000BA64498F017"
+               BlueprintIdentifier = "1369C11B9C1118CD1769D4589FAA7D37"
+               BuildableName = "libDOPDropDownMenu-Enhanced.a"
                BlueprintName = "DOPDropDownMenu-Enhanced"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libDOPDropDownMenu-Enhanced.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -17,7 +17,7 @@ module.exports = new Router({
   routes: [
     {
       path:'/',
-      redirect:'/pageA.JS',
+      redirect:'/pageA.js',
     },
     {
       path: '/pageA.js',

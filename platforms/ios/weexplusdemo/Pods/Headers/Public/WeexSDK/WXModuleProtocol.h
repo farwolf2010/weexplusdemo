@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Protocol/WXModuleProtocol.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Protocol/WXModuleProtocol.h

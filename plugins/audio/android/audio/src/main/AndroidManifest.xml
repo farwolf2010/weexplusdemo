@@ -1,0 +1,6 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.instapp.nat.weex.plugin.media.Audio">
+<application>
+    <service android:name="com.farwolf.audio.service.BackService"/>
+</application>
+</manifest>

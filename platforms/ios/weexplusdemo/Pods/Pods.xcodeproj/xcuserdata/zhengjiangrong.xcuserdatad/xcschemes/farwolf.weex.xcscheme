@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DDA19F1029A4B904246461C7B28FCEE5"
+               BlueprintIdentifier = "3DCAF8280CFFE7FAFE5AEB82567FC7E6"
+               BuildableName = "libfarwolf.weex.a"
                BlueprintName = "farwolf.weex"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libfarwolf.weex.a">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

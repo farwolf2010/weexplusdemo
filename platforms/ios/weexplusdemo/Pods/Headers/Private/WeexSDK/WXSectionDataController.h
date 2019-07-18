@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/Recycler/WXSectionDataController.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/Recycler/WXSectionDataController.h

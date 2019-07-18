@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Module/WXTimerModule.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Module/WXTimerModule.h

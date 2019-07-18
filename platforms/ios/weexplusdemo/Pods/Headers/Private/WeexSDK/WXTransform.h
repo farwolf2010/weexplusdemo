@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXTransform.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXTransform.h

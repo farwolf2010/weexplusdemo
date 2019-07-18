@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Utility/WXAppConfiguration.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Utility/WXAppConfiguration.h

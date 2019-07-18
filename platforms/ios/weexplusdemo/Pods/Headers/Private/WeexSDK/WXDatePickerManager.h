@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Manager/WXDatePickerManager.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Manager/WXDatePickerManager.h

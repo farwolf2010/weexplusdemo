@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXHeaderComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXHeaderComponent.h

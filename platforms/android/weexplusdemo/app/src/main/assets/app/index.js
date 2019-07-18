@@ -62,26 +62,26 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 65);
+/******/ 	return __webpack_require__(__webpack_require__.s = 69);
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 65:
+/***/ 69:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __vue_exports__, __vue_options__
 var __vue_styles__ = []
 
 /* styles */
-__vue_styles__.push(__webpack_require__(66)
+__vue_styles__.push(__webpack_require__(70)
 )
 
 /* script */
-__vue_exports__ = __webpack_require__(67)
+__vue_exports__ = __webpack_require__(71)
 
 /* template */
-var __vue_template__ = __webpack_require__(68)
+var __vue_template__ = __webpack_require__(72)
 __vue_options__ = __vue_exports__ = __vue_exports__ || {}
 if (
   typeof __vue_exports__.default === "object" ||
@@ -93,10 +93,10 @@ __vue_options__ = __vue_exports__ = __vue_exports__.default
 if (typeof __vue_options__ === "function") {
   __vue_options__ = __vue_options__.options
 }
-__vue_options__.__file = "/Users/zhengjiangrong/Desktop/weexplusdemo/src/native/index.vue"
+__vue_options__.__file = "/Users/zhengjiangrong/Documents/GitHub/weexplusdemo/src/native/index.vue"
 __vue_options__.render = __vue_template__.render
 __vue_options__.staticRenderFns = __vue_template__.staticRenderFns
-__vue_options__._scopeId = "data-v-ca119966"
+__vue_options__._scopeId = "data-v-262ccc67"
 __vue_options__.style = __vue_options__.style || {}
 __vue_styles__.forEach(function (module) {
   for (var name in module) {
@@ -114,14 +114,14 @@ new Vue(module.exports)
 
 /***/ }),
 
-/***/ 66:
+/***/ 70:
 /***/ (function(module, exports) {
 
 module.exports = {}
 
 /***/ }),
 
-/***/ 67:
+/***/ 71:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -130,11 +130,15 @@ module.exports = {}
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+//
+//
+//
+//
+//
 
-var _weexUi = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"weex-ui\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 exports.default = {
-  components: { WxcButton: _weexUi.WxcButton, WxcPopup: _weexUi.WxcPopup },
+  components: {},
   props: {},
   data: function data() {
     return {};
@@ -151,15 +155,11 @@ exports.default = {
     }
   },
   created: function created() {}
-}; //
-//
-//
-//
-//
+};
 
 /***/ }),
 
-/***/ 68:
+/***/ 72:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -167,7 +167,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       backgroundColor: "red"
     }
-  }, [_c('WxcButton')], 1)
+  })
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 

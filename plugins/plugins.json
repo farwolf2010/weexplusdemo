@@ -1,5 +1,10 @@
 {
-  "ios": [],
-  "web": [],
-  "android": []
+	"toast": {
+		"version": "latest",
+		"url": "https://github.com/farwolf2010/plugin-template"
+	},
+	"audio": {
+		"version": "latest",
+		"url": "https://github.com/farwolf2010/audio"
+	}
 }

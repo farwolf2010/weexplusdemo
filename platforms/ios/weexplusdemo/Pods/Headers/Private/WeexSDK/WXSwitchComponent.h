@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXSwitchComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXSwitchComponent.h

@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXCellComponent.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXCellComponent.h

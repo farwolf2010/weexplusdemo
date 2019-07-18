@@ -1,1 +1,1 @@
-../../../../sdk/WeexSDK/Sources/Component/WXRichText.h
+../../../../sdk/ios/sdk/WeexSDK/Sources/Component/WXRichText.h

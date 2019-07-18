@@ -1,6 +1,6 @@
 {
   "schema":"js",
-  "debug":false,
+  "debug":true,
   "showerror":true,
   "isPortrait":true,
   "jsVersion":3,
