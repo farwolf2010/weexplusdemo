@@ -69,7 +69,7 @@
       let _this=this
       this.$router.beforeEach((to, from, next) => {
 //         return
-//        debugger
+        debugger
         if (_this.routerList.length && _this.routerList.indexOf(to.fullPath) === _this.routerList.length - 1) {
           // 后退
           _this.routerList.splice(_this.routerList.length - 1, 1)
